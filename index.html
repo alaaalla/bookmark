@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Playwrite+IS:wght@100..400&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+IS:wght@100..400&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+IS:wght@100..400&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+<div class="position-relative py-5">
+    <div class="container d-flex flex-column justify-content-center align-items-center ">
+        <h1 class=" py-2 position-relative m-auto">Bookmarker
+            <div class="head position-absolute "></div>
+        </h1>
+        <div class="bookmark-input w-100 p-3 py-4 gap-4 mt-5 d-flex flex-column">
+            <h2 class="text-success"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i
+                    class="fa-solid fa-bookmark"></i></h2>
+            <div class="bookmark-name w-100 flex-column justify-content-center">
+                <label for="siteName" class="pb-2 fw-bold "><i class="fa-solid fa-book-bookmark pe-2"></i>Site
+                    Name</label>
+                <input type="text" id="siteName" class="form-control pb-2" placeholder="Bookmark Name">
+            </div>
+            <div class="bookmark-url w-100 flex-column justify-content-center">
+                <label for="siteURL" class="pb-2 fw-bold"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                <input type="text" id="siteURL" class="form-control pb-2" placeholder="Website URL">
+            </div>
+            <button type="submit" id="submit" class="btn btn-danger">Submit</button>
+        </div>
+        <table class="table col-lg-8 col-md-10 col-sm-12  bg-light text-center mt-4 ">
+            <thead>
+                <th>Index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="content">
+            </tbody>
+        </table>
+    </div>
+    <div class="boxContainer position-absolute start-0 top-0 bottom-0 w-100 h-100 d-none justify-content-center align-items-center">
+        <div class="box-content bg-white p-4 rounded-2 ">
+          <header class="box-header w-100 d-flex justify-content-between align-items-start mb-4 position-relative pb-2">
+            <div class="circles d-flex position-absolute start-0">
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+            </div>
+            <button class="btn border-0 position-absolute end-0" id="closeBtn">
+              <i class="fa-solid fa-xmark close fs-3"></i>
+            </button>
+          </header>
+          <p class=" pt-3">
+            Site Name or Url is not valid, Please follow the rules below :
+          </p>
+          <ol class="rules list-unstyled m-0">
+            <li class="pb-2">
+              <i class="fa-regular fa-circle-right text-danger p-2"></i>Site name must
+              contain at least 3 characters
+            </li>
+            <li>
+              <i class="fa-regular fa-circle-right text-danger p-2"></i>Site URL must be a
+              valid one
+            </li>
+          </ol>
+        </div>
+      </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

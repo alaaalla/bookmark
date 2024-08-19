@@ -1,0 +1,83 @@
+*{
+    margin: auto;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-color:#f7ecde;
+    display: block;
+     font-family: "PT Sans Caption", sans-serif;
+    }
+ 
+h1{
+    width: 265px;
+    font-family: "Pacifico", cursive;
+    font-size: 50px;
+    font-weight: 400;
+}
+.head{
+    height: 25%;
+    width: 100%;
+    background-color: #fec260;
+    bottom: 10px;
+    z-index: -1;
+}
+ h1:hover .head {
+    animation-name: color;
+    animation-duration: 400ms;
+    animation-timing-function: ease;
+}
+@keyframes color {
+    0% {height: 25%;}
+    50%{height: 40%;}
+    100%{height: 50%;}
+}
+
+.bookmark-input{
+border-bottom: dotted 2px black;
+border-top: dotted 2px black;}
+.bookmark-input h2{
+    width: 400px;
+    margin: auto;
+    font-family: "Righteous", cursive;
+    font-size: 25px;
+    background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+}
+#submit{width: 150px;
+margin: auto;
+}
+table{
+    border-color: grey;
+}
+button:hover{opacity: 0.8;}
+#visit{background-color: #9eb23b;
+border-color: #9eb23b;}
+.boxContainer{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.box-content{
+    width: 35%;
+}
+.circles span{
+    width: 20px;
+    height: 20px;
+}
+.circles span:nth-child(1){
+    background-color: #f15f5d;
+}
+
+.circles span:nth-child(2){
+    background-color: #fec260;
+}
+.circles span:nth-child(3){
+    background-color: #9eb23b;
+}
+.box p{
+    font-weight: bold;
+    font-size: 20px;
+}
+.box li{
+    font-size: 18px;
+}
