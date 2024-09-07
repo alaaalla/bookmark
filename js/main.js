@@ -21,6 +21,9 @@ function submitData() {
         displaySite(sitesList);
         validateName();
         clearInput();
+        siteURL.classList.remove("is-valid");
+        siteName.classList.remove("is-valid")
+
     }
     else {
         error.classList.replace("d-none", "d-flex");
@@ -31,17 +34,38 @@ function clearInput() {
         siteURL.value = ''
 }
 function displaySite(data) {
-    var cartona = '';
+    var mydata = '';
     for (var i = 0; i < data.length; i++) {
-        cartona += `<tr><td>${i + 1}</td>
+        mydata += `<tr><td>${i + 1}</td>
     <td>${data[i].name}</td>
-    <td><button id="visit" class="btn text-light" onclick="visit(${i})"><i class="fa-solid fa-eye"></i> Visit</button></td>
-    <td><button class="btn delete btn-danger" onclick="Delete(${i})"><i class="fa-solid fa-trash"></i> Delete</button></td></td>`;
+    <td><button id="visit" class="btn text-light" visitURL=${i} ><i class="fa-solid fa-eye"></i> Visit</button></td>
+    <td><button class="btn delete btn-danger" deleteData=${i} ><i class="fa-solid fa-trash"></i> Delete</button></td></td>`;
     }
-    document.getElementById("content").innerHTML = cartona;
+    document.getElementById("content").innerHTML = mydata;
+
+    let visitBtns = document.querySelectorAll("[visitURL]");
+    getVisit(visitBtns);
+    let deleteBtns = document.querySelectorAll("[deleteData]");
+    assignDelete(deleteBtns);
+}
+function getVisit(data) {
+    for (let i = 0; i < data.length; i++) {
+        data[i].addEventListener("click", function (event) {
+            let index = event.target.getAttribute("visitURL");
+            visit(index);
+        })
+    }
 }
 function visit(i) {
     window.open(sitesList[i].url);
+}
+function assignDelete(data) {
+    for (let i = 0; i < data.length; i++) {
+        data[i].addEventListener("click", function (event) {
+            let index = event.target.getAttribute("deleteData");
+            Delete(index);
+        });
+    }
 }
 function Delete(index) {
     sitesList.splice(index, 1)
@@ -51,25 +75,27 @@ function Delete(index) {
 function validateName() {
     var regex = /^[a-z]{3,}/ig
     if (regex.test(siteName.value)) {
-        siteName.classList.replace("is-invalid", "is-valid");
+        siteName.classList.remove("is-invalid");
+        siteName.classList.add("is-valid");
         return true;
     }
     else {
-        document.querySelector("#siteName").classList.add("is-invalid")
+        siteName.classList.remove("is-valid");
+        siteName.classList.add("is-invalid");
         return false;
     }
 }
 function validateURL() {
     var regex =
         /^(http(s):\/\/.)[\w\W]{2,256}\.[a-z]{2,6}\b([\w@:%_\+.~#?&\/\/=]*)$/
-    // var link = /(https:\/\www\.|http:\/\/www\.|https:\/\/|http:\/\/)\w{2,}\.\w{2,}\.\w{2,}(\.\w{2,})?
 
     if (regex.test(siteURL.value)) {
         siteURL.classList.replace("is-invalid", "is-valid");
         return true;
     }
     else {
-        siteURL.classList.add("is-invalid")
+        siteURL.classList.remove("is-valid");
+        siteURL.classList.add("is-invalid");
         return false;
     }
 }
